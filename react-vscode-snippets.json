@@ -1,0 +1,58 @@
+{
+    "Typescript React component": {
+      "scope": "typescriptreact",
+      "prefix": "rfc",
+      "body": [
+        "import React, { FC } from 'react'",
+        "",
+        "type ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}Props = {",
+        "",
+        "}",
+        "",
+        "export const ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}: FC<${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}Props> = ({ $2 }: ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}Props) => {",
+        "  return (",
+        "    <div>",
+        "     ${3:$TM_FILENAME_BASE}",
+        "    </div>",
+        "  )",
+        "}"
+      ]
+    },
+  
+    "Print With Information": {
+      "prefix": "log",
+      "body": [
+        "console.log('File: $TM_FILENAME Line:$TM_LINE_NUMBER  ${1:var} - ', ${1:${1}})"
+      ],
+      "description": "Inserts a console.log statement with the variable name and a string."
+    },
+  
+    "Insert Use State": {
+      "prefix": "useState",
+      "scope": "typescriptreact",
+      "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = useState()"],
+      "description": "Inserts UseState"
+    },
+  
+    "Insert Use Effect": {
+      "prefix": "useEffect",
+      "body": ["useEffect(() => {", "  $1", "}, [])"],
+      "description": "Inserts UseState"
+    },
+  
+    "Zustand Create Store": {
+      "prefix": "createZustandStore",
+      "body": [
+        "import { create } from 'zustand'",
+        "",
+        "type ${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}State = {",
+        "",
+        "}",
+        "",
+        "export const useAppStore = create<${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}State>((set, get) => ({",
+        "  $2",
+        "}))"
+      ]
+    }
+  }
+  
